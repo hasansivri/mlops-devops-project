@@ -21,9 +21,9 @@ jobs:
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/model-api:latest
 
-      - name: Deploy to Kubernetes
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig
-          export KUBECONFIG=kubeconfig
-          kubectl apply -f k8s/
+     # - name: Deploy to Kubernetes
+     #   run: |
+     #     echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig
+     #     export KUBECONFIG=kubeconfig
+     #     kubectl apply -f k8s/
           
