@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:dind
+  script:
+    - docker build -t model-api ./model-api
+    - docker tag model-api your-dockerhub/model-api:latest
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker push your-dockerhub/model-api:latest
+
+deploy:
+  stage: deploy
+  image: bitnami/kubectl
+  script:
+    - kubectl apply -f k8s/deployment.yaml
+    - kubectl apply -f k8s/service.yaml
