@@ -43,3 +43,5 @@ jobs:
           
           # 4. Status kontrolü
           kubectl rollout status deployment/model-api-deployment --timeout=60s
+
+          
