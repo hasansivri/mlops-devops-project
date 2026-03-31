@@ -27,11 +27,11 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/model-api:latest
 
-      - name: Deploy to Kubernetes
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-          kubectl apply -f k8s/
-          kubectl rollout restart deployment/model-api-deployment
-          kubectl rollout status deployment/model-api-deployment --timeout=60s
+#      - name: Deploy to Kubernetes
+#        run: |
+#          mkdir -p ~/.kube
+#          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+#          kubectl apply -f k8s/
+#          kubectl rollout restart deployment/model-api-deployment
+#          kubectl rollout status deployment/model-api-deployment --timeout=60s
           
