@@ -34,3 +34,4 @@ jobs:
           kubectl apply -f k8s/
           kubectl rollout restart deployment/model-api-deployment
           kubectl rollout status deployment/model-api-deployment --timeout=60s
+          
