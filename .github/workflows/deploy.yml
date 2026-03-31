@@ -26,3 +26,4 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig
           export KUBECONFIG=kubeconfig
           kubectl apply -f k8s/
+          
